@@ -4,5 +4,5 @@
   "trailingComma": "es5",
   "allowParens": "avoid",
   "tabWidth": 2,
-  "printWidth": 80
+  "printWidth": 140
 }

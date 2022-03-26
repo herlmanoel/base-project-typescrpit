@@ -6,6 +6,7 @@
   "password": "",
   "database": "tasks",
   "logging": false,
+  "synchronize": true,
   "entities": ["src/app/models/*.ts"],
   "migrations": ["src/database/migrations/*.ts"],
   "cli": {

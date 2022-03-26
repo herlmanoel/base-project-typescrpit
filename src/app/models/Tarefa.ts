@@ -1,17 +1,28 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class Tarefa {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
-  descricao: string;
-  @Column()
-  isConcluida: boolean;
 
-  constructor(id: number, descricao: string, isConcluida: boolean) {
-    this.id = id;
-    this.descricao = descricao;
-    this.isConcluida = isConcluida;
-  }
+  @Column()
+  nome: string;
+
+  @Column()
+  conteudo: string;
+
+  @Column()
+  autor: string;
+
+  @CreateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+  })
+  public created_at: Date;
 }

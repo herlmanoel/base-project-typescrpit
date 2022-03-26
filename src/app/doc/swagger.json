@@ -1,0 +1,109 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API para manipulação de Tarefas",
+    "contact": {
+      "email": "herlmanoel@gmail.com"
+    }
+  },
+  "paths": {
+    "/tasks": {
+      "post": {
+        "summary": "Cadastro da Tarefa",
+        "tags": ["Tasks"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema":{
+                "$ref": "#/components/schemas/Task"
+              },
+              "examples": {
+                "task": {
+                  "nome": "Nome da tarefa",
+                  "conteudo": "Estudar Programação",
+                  "autor": "Herlmanoel Fernandes"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Buscar todas as Tarefas",
+        "tags": ["Tasks"]
+      }
+    },
+    "/tasks/{id}":{
+      "get": {
+        "summary": "Buscar Tarefa pelo ID",
+        "tags": ["Tasks"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da Tarefa",
+            "required": true
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deletar a Tarefa",
+        "tags": ["Tasks"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da Tarefa",
+            "required": true
+          }
+        ]
+      },
+      "put": {
+        "summary": "Alterar a Tarefa",
+        "tags": ["Tasks"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da Tarefa",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema":{
+                "$ref": "#/components/schemas/Task"
+              },
+              "examples": {
+                "task": {
+                  "nome": "Nome da tarefa",
+                  "conteudo": "Estudar Programação",
+                  "autor": "Herlmanoel Fernandes"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Task": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "conteudo": {
+            "type": "string"
+          },
+          "autor": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
