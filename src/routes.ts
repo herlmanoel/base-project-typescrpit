@@ -1,9 +1,11 @@
 import { Router } from 'express';
 
-import HomeControler from './app/controllers/HomeController';
+import { TarefaController } from './app/controllers/HomeController';
+
+const tarefaController = new TarefaController();
 
 const routes = Router();
 
-routes.get('/', HomeControler.index);
+routes.get('/', tarefaController.index);
 
 export default routes;
